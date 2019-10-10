@@ -9,9 +9,10 @@ import javax.persistence.OneToMany;
 public class StudentSosPassword {
 
     @Id
+    @Column(name = "id" )
     private String id;
     @Column(name = "username" )
-    @OneToMany()
+//    @OneToMany()
     private String username;
     @Column(name = "password" )
     private String password;

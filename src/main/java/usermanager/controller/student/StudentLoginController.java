@@ -14,7 +14,7 @@ import usermanager.service.student.StudentLoginService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin/studentlogin")
+@RequestMapping("/cputusermanager/student/studentlogin")
 public class StudentLoginController {
 
     @Autowired

@@ -14,7 +14,7 @@ import usermanager.service.admin.AdminLoginService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin/adminlogin")
+@RequestMapping("/cputusermanager/admin/adminlogin")
 public class AdminLoginController {
 
     @Autowired

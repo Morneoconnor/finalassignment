@@ -7,11 +7,11 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class StudentLogin {
-
     @Id
+    @Column(name = "id" )
     private String id;
     @Column(name = "username" )
-    @OneToMany()
+//    @OneToMany()
     private String username;
     @Column(name = "password" )
     private String password;

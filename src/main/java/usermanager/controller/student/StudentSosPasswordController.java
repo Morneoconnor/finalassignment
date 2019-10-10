@@ -14,7 +14,7 @@ import usermanager.service.student.StudentSosPasswordService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin/studentsospassword")
+@RequestMapping("/cputusermanager/student/studentsospassword")
 public class StudentSosPasswordController {
 
     @Autowired

@@ -7,11 +7,10 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class AdminSosPassword {
-
     @Id
+    @Column(name = "id" )
     private String id;
-    @Column(name = "gender_name" )
-    @OneToMany()
+    @Column(name = "username" )
     private String username;
     @Column(name = "password" )
     private String password;

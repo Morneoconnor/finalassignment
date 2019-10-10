@@ -14,7 +14,7 @@ import usermanager.service.admin.AdminSosPasswordService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin/adminsospassword")
+@RequestMapping("/cputusermanager/admin/adminsospassword")
 public class AdminSosPasswordController {
 
     @Autowired
