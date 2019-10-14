@@ -14,7 +14,7 @@ import usermanager.service.admin.AdminSosPasswordService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cputusermanager/admin/adminsospassword")
+@RequestMapping(value = {"/", "/cputusermanager/admin/adminsospassword"})
 public class AdminSosPasswordController {
 
     @Autowired
@@ -33,7 +33,7 @@ public class AdminSosPasswordController {
             if (savedAdminSosPassword != null) {
                 responseObj.setResponseDescription("Login details already exist!");
             } else {
-                savedAdminSosPassword = AdminSosPasswordFactory.buildAdminSosPassword(id, username, password);
+                savedAdminSosPassword = AdminSosPasswordFactory.buildAdminSosPassword( username, password);
                 savedAdminSosPassword = adminSosPasswordService.create(savedAdminSosPassword);
             }
             responseObj.setResponse(savedAdminSosPassword);

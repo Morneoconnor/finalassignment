@@ -44,10 +44,10 @@ public class AdminSosPasswordServiceImpl implements AdminSosPasswordService {
     }
 
     @Override
-    public AdminSosPassword retrieveById(String raceDesc) {
+    public AdminSosPassword retrieveById(String id) {
         List<AdminSosPassword> adminSosPasswords = getAll();
         for(AdminSosPassword adminSosPassword : adminSosPasswords) {
-            if (adminSosPassword.getId().equalsIgnoreCase(raceDesc))
+            if (adminSosPassword.getId().equalsIgnoreCase(id))
                 return adminSosPassword;
         } return null;
     }

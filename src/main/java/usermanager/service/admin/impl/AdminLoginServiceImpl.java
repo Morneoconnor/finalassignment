@@ -47,7 +47,7 @@ public class AdminLoginServiceImpl implements AdminLoginService {
     public AdminLogin retrieveById(String raceDesc) {
         List<AdminLogin> adminLogins = getAll();
         for(AdminLogin adminLogin : adminLogins) {
-            if (adminLogin.getId().equalsIgnoreCase(raceDesc))
+            if (adminLogin.getUserName().equalsIgnoreCase(raceDesc))
                 return adminLogin;
         } return null;
     }

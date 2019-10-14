@@ -1,13 +1,10 @@
 package usermanager.domain.admin;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "tbladminsospassword")
 public class AdminSosPassword {
-    @Id
     @Column(name = "id" )
     private String id;
     @Column(name = "username" )
@@ -18,7 +15,6 @@ public class AdminSosPassword {
     private AdminSosPassword() {}
 
     public AdminSosPassword(Builder builder) {
-        this.id = builder.id;
         this.username = builder.username;
         this.password = builder.password;
     }
@@ -36,7 +32,6 @@ public class AdminSosPassword {
     @Override
     public String toString() {
         return "AdminSosPassword{" +
-                "id='" + id + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
@@ -44,7 +39,7 @@ public class AdminSosPassword {
 
     public static class Builder{
 
-        private String id, username, password;
+        private String  id, username, password;
 
         public Builder id(String id) {
             this.id = id;

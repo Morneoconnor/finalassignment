@@ -35,7 +35,7 @@ public class CPUTUserManagerSecurity extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/payroll/lookup/**/create/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.POST, "cputusermanager/adminlogin/**/create/**").hasRole(ADMIN_ROLE)
                 .and()
                 .csrf().disable()
                 .formLogin().disable();
