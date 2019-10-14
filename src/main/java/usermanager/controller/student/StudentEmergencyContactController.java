@@ -14,7 +14,7 @@ import usermanager.service.student.StudentEmergencyContactService;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = {"/", "/cputusermanager/admin/studentemergencycontactservice"})
+@RequestMapping(value = {"/", "/cputusermanager/admin/emergencycontact"})
 public class StudentEmergencyContactController {
     @Autowired
     private StudentEmergencyContactService studentEmergencyContactService;

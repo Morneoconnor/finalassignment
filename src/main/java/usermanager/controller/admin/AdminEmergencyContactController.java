@@ -14,7 +14,7 @@ import usermanager.service.admin.AdminEmergencyContactService;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = {"/", "/cputusermanager/admin/adminemergencycontactservice"})
+@RequestMapping(value = {"/", "/cputusermanager/admin/emergencycontactservice"})
 public class AdminEmergencyContactController {
     @Autowired
     private AdminEmergencyContactService adminEmergencyContactService;

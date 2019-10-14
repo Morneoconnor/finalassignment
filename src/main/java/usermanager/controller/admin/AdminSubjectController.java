@@ -14,7 +14,7 @@ import usermanager.service.admin.AdminSubjectService;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = {"/", "/cputusermanager/admin/adminsubject"})
+@RequestMapping(value = {"/", "/cputusermanager/admin/subject"})
 public class AdminSubjectController {
 
     @Autowired

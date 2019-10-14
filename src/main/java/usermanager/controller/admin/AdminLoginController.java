@@ -16,7 +16,7 @@ import usermanager.service.admin.AdminLoginService;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = {"/", "/cputusermanager/admin/adminlogin"})
+@RequestMapping(value = {"/", "/cputusermanager/admin/login"})
 public class AdminLoginController {
 
     @Autowired

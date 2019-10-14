@@ -14,7 +14,7 @@ import usermanager.service.student.StudentCourseService;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = {"/", "/cputusermanager/student/studentcourse"})
+@RequestMapping(value = {"/", "/cputusermanager/student/course"})
 public class StudentCourseController {
 
     @Autowired

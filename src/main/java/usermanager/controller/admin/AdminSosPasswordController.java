@@ -14,7 +14,7 @@ import usermanager.service.admin.AdminSosPasswordService;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = {"/", "/cputusermanager/admin/adminsospassword"})
+@RequestMapping(value = {"/", "/cputusermanager/admin/sospassword"})
 public class AdminSosPasswordController {
 
     @Autowired
