@@ -50,7 +50,7 @@ public class AdminSubjectController {
 
     @GetMapping("/delete/{id}")
     @ResponseBody
-    public void delete(@PathVariable String id) {
+    public void delete(@PathVariable("admin") String id) {
         adminSubjectService.delete(id);
     }
 

@@ -5,9 +5,12 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tbladmincourse")
 public class AdminCourse {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
+    private long id;
     @Id
-    @Column(name = "id" )
-    private String id;
+    @Column(name = "username" )
+    private String username;
     @Column(name = "course" )
     private String course;
 
@@ -15,12 +18,16 @@ public class AdminCourse {
     private AdminCourse() {}
 
     public AdminCourse(Builder builder) {
+        this.username = builder.username;
         this.id = builder.id;
         this.course = builder.course;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
+    }
+    public String getUsername() {
+        return username;
     }
     public String getCourse() {
         return course;
@@ -36,13 +43,17 @@ public class AdminCourse {
 
     public static class Builder{
 
-        private String id, course;
+        private long id;
+        private String username, course;
 
-        public Builder id(String id) {
+        public Builder id(long id) {
             this.id = id;
             return this;
         }
-
+        public Builder username(String username) {
+            this.username = username;
+            return this;
+        }
         public Builder course(String course) {
             this.course = course;
             return this;
@@ -50,6 +61,7 @@ public class AdminCourse {
 
         public Builder copy(AdminCourse adminCourse) {
             this.id = adminCourse.id;
+            this.username = adminCourse.username;
             this.course = adminCourse.course;
 
             return this;

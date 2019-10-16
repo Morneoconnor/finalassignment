@@ -4,9 +4,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "tbladminsospassword")
-public class AdminSosPassword {
-    @Column(name = "id" )
-    private String id;
+public class AdminSosPassword{
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
+    private long id;
+    @Id
     @Column(name = "username" )
     private String username;
     @Column(name = "password" )
@@ -15,11 +18,12 @@ public class AdminSosPassword {
     private AdminSosPassword() {}
 
     public AdminSosPassword(Builder builder) {
+        this.id = builder.id;
         this.username = builder.username;
         this.password = builder.password;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
     public String getUserName() {
@@ -39,9 +43,10 @@ public class AdminSosPassword {
 
     public static class Builder{
 
-        private String  id, username, password;
+        private long id;
+        private String  username, password;
 
-        public Builder id(String id) {
+        public Builder id(long id) {
             this.id = id;
             return this;
         }

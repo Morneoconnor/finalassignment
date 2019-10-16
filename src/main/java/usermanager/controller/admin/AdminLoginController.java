@@ -22,44 +22,49 @@ public class AdminLoginController {
     @Autowired
     private AdminLoginService adminLoginService;
 
-    @PostMapping(value = "/create/{adminlogin}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity create(@PathVariable String username, String password) {
-        System.out.println("Entered Value: " + username + " - " + password);
-        ResponseObj responseObj = ResponseObjFactory.buildGenericResponseObj(HttpStatus.OK.toString(), "Gender created!");
-        AdminLogin savedAdminLogin;
-        if (username == null || username.trim().isEmpty() || username.trim().equalsIgnoreCase("null")) {
-            responseObj.setResponseCode(HttpStatus.PRECONDITION_FAILED.toString());
-            responseObj.setResponseDescription("Provide login details!");
-        } else {
-            savedAdminLogin = adminLoginService.retrieveById(username);
-            if (savedAdminLogin != null) {
-                responseObj.setResponseDescription("Login details already exist!");
-            } else {
-                savedAdminLogin = AdminLoginFactory.buildAdminLogin(username, password);
-                savedAdminLogin = adminLoginService.create(savedAdminLogin);
-            }
-            responseObj.setResponse(savedAdminLogin);
-        }
-        return ResponseEntity.ok(responseObj);
-    }
-    @PutMapping("/update/{adminlogin}")
-    public void updateEmployee(@RequestBody String username, String password){
-        AdminLogin savedAdminLogin;
-
-        savedAdminLogin = AdminLoginFactory.buildAdminLogin( username, password);
-        adminLoginService.update(savedAdminLogin);
-    }
-
-    @GetMapping("/delete/{id}")
+    @PostMapping("/create")
     @ResponseBody
-    public void delete(@PathVariable String id) {
-        adminLoginService.delete(id);
+    public AdminLogin create(@RequestBody AdminLogin adminObj) {
+        AdminLogin savedAdminLogin;
+        savedAdminLogin = adminLoginService.create(adminObj);
+//        System.out.println("Entered Value: " + username + " - " + password);
+//        ResponseObj responseObj = ResponseObjFactory.buildGenericResponseObj(HttpStatus.OK.toString(), "Gender created!");
+//        AdminLogin savedAdminLogin;
+//        if (username == null || username.trim().isEmpty() || username.trim().equalsIgnoreCase("null")) {
+//            responseObj.setResponseCode(HttpStatus.PRECONDITION_FAILED.toString());
+//            responseObj.setResponseDescription("Provide login details!");
+//        } else {
+//            savedAdminLogin = adminLoginService.retrieveById(username);
+//            if (savedAdminLogin != null) {
+//                responseObj.setResponseDescription("Login details already exist!");
+//            } else {
+//                savedAdminLogin = AdminLoginFactory.buildAdminLogin(username, password);
+//                savedAdminLogin = adminLoginService.create(savedAdminLogin);
+//            }
+//            responseObj.setResponse(savedAdminLogin);
+//        }
+        return savedAdminLogin;
+    }
+    @PostMapping("/update")
+    @ResponseBody
+    public void updateEmployee(@RequestBody AdminLogin adminObj){
+        AdminLogin savedAdminLogin;
+
+        adminLoginService.update(adminObj);
+    }
+
+    @GetMapping("/delete/{admin}")
+    @ResponseBody
+    public void delete(@PathVariable("admin") String username) {
+
+        adminLoginService.delete(username);
     }
 
     @GetMapping("/read/{admin}")
     @ResponseBody
-    public AdminLogin read(@PathVariable String userName) {
-        return adminLoginService.read(userName);
+    public AdminLogin read(@PathVariable("admin") String username) {
+
+        return adminLoginService.read(username);
     }
 
     @GetMapping(value = "/getall", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -47,7 +47,7 @@ public class AdminCourseServiceImpl implements AdminCourseService {
     public AdminCourse retrieveById(String id) {
         List<AdminCourse> adminLogins = getAll();
         for(AdminCourse adminLogin : adminLogins) {
-            if (adminLogin.getId().equalsIgnoreCase(id))
+            if (adminLogin.getUsername().equalsIgnoreCase(id))
                 return adminLogin;
         } return null;
     }

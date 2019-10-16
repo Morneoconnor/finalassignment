@@ -40,6 +40,28 @@ public class AdminSosPasswordController {
         }
         return ResponseEntity.ok(responseObj);
     }
+    @PostMapping("/update")
+    @ResponseBody
+    public void updateEmployee(@RequestBody AdminSosPassword adminObj){
+        AdminSosPassword savedAdminLogin;
+
+        adminSosPasswordService.update(adminObj);
+    }
+
+    @GetMapping("/delete/{admin}")
+    @ResponseBody
+    public void delete(@PathVariable("admin") String username) {
+
+        adminSosPasswordService.delete(username);
+    }
+
+    @GetMapping("/read/{admin}")
+    @ResponseBody
+    public AdminSosPassword read(@PathVariable("admin") String username) {
+
+        return adminSosPasswordService.read(username);
+    }
+
 
     @GetMapping(value = "/getall", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity getAll(){

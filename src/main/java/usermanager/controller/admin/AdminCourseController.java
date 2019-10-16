@@ -40,23 +40,23 @@ public class AdminCourseController {
         return ResponseEntity.ok(responseObj);
     }
     @PutMapping("/update/{id}")
-    public void updateEmployee(@RequestBody String id, String course){
+    public void updateEmployee(@RequestBody  String username,String course){
         AdminCourse savedCourse;
 
-        savedCourse = AdminCourseFactory.buildAdminCourse( id, course);
+        savedCourse = AdminCourseFactory.buildAdminCourse( username, course);
         adminCourseService.update(savedCourse);
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/delete/{admin}")
     @ResponseBody
-    public void delete(@PathVariable String id) {
-        adminCourseService.delete(id);
+    public void delete(@PathVariable("admin") String username) {
+        adminCourseService.delete(username);
     }
 
-    @GetMapping("/read/{id}")
+    @GetMapping("/read/{admin}")
     @ResponseBody
-    public AdminCourse read(@PathVariable String id) {
-        return adminCourseService.read(id);
+    public AdminCourse read(@PathVariable("admin") String username) {
+        return adminCourseService.read(username);
     }
 
     @GetMapping(value = "/getall", produces = MediaType.APPLICATION_JSON_VALUE)

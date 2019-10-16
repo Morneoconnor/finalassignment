@@ -47,7 +47,7 @@ public class AdminSosPasswordServiceImpl implements AdminSosPasswordService {
     public AdminSosPassword retrieveById(String id) {
         List<AdminSosPassword> adminSosPasswords = getAll();
         for(AdminSosPassword adminSosPassword : adminSosPasswords) {
-            if (adminSosPassword.getId().equalsIgnoreCase(id))
+            if (adminSosPassword.getUserName().equalsIgnoreCase(id))
                 return adminSosPassword;
         } return null;
     }

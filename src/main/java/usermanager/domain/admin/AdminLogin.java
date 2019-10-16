@@ -5,6 +5,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tbladminlogin")
 public class AdminLogin {
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
+    private long id;
     @Id
     @Column(name = "username" )
     private String username;
@@ -14,14 +18,14 @@ public class AdminLogin {
     private AdminLogin() {}
 
     public AdminLogin(Builder builder) {
-        //this.id = builder.id;
+        this.id = builder.id;
         this.username = builder.username;
         this.password = builder.password;
     }
 
-    //public String getId() {
-//        return id;
-//    }
+    public long getId() {
+        return id;
+    }
     public String getUserName() {
         return username;
     }
@@ -40,12 +44,13 @@ public class AdminLogin {
 
     public static class Builder{
 
-        private String id, username, password;
+        private long id;
+        private String  username, password;
 
-//        public Builder id(String id) {
-//            this.id = id;
-//            return this;
-//        }
+        public Builder id(long id) {
+            this.id = id;
+            return this;
+        }
 
         public Builder username(String username) {
             this.username = username;
@@ -58,7 +63,7 @@ public class AdminLogin {
         }
 
         public Builder copy(AdminLogin adminLogin) {
-//            this.id = adminLogin.id;
+            //this.id = adminLogin.id;
             this.username = adminLogin.username;
             this.password = adminLogin.password;
 
